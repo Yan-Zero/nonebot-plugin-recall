@@ -25,7 +25,7 @@ async def get_follow_message(
     adapter_name: str, message_id: str, channel_id: str | None = None
 ) -> list[FollowMessage] | None:
     try:
-        ret = REDIS.smembers(f"{adapter_name}:{channel_id}:{message_id}")
+        ret = REDIS.smembers(f"OriginMessage:{adapter_name}:{message_id}:{channel_id}")
     except Exception:
         ret = set()
     return [FollowMessage.model_validate_json(i) for i in ret]
