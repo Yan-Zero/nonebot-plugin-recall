@@ -25,7 +25,9 @@ from ..adapter import (
     register_get_message_func,
 )
 
-register_allow_apis("OneBot V11", ["send_msg"])
+register_allow_apis(
+    "OneBot V11", ["send_msg", "send_group_forward_msg", "send_private_forward_msg"]
+)
 register_allow_apis("OneBot V12", ["send_message"])
 
 
